@@ -1,0 +1,9 @@
+.Button {
+    margin: 10px 0;
+    width: 100%;
+}
+
+.Button button {
+    width: 100%;
+    padding: 10px;
+}
