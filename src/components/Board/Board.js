@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Dice from '../Dice/Dice';
 import Button from '../Button/Button';
+import Loading from '../../images/Loading.svg';
 import './Board.css';
 
 class Board extends React.Component {
@@ -9,13 +10,8 @@ class Board extends React.Component {
         super(props);
 
         this.state = {
-            dices: [
-                { id: 1, value: 1 },
-                { id: 2, value: 1 },
-                { id: 3, value: 1 },
-                { id: 4, value: 1 },
-                { id: 5, value: 1 }
-            ],
+            dices: [1, 1, 1, 1 ,1],
+            tossing: false,
             gameOver: false
         }
 
@@ -29,13 +25,17 @@ class Board extends React.Component {
     }
 
     handleTossDicesClick() {
-        this.setState((prevState) => {
-            const dices = prevState.dices.map((dice) => {
-                return { id: dice.id, value: this.getRandomDiceValue() };
-            });
+        this.setState({ tossing: true });
 
-            return { dices };
-        });
+        setTimeout(() => {
+            this.setState((prevState) => {
+                const dices = prevState.dices.map(() => {
+                    return this.getRandomDiceValue();
+                });
+
+                return { dices, tossing: false };
+            });
+        }, 1000);
     }
 
     handleLoseDiceClick() {
@@ -55,15 +55,19 @@ class Board extends React.Component {
 
             if (dices.length === 5) return { dices };
 
-            dices.push({ id: dices[dices.length - 1].id + 1, value: 1 });
+            dices.push(1);
 
             return { dices };
         });
     }
 
     renderDices() {
-        return this.state.dices.map((dice) => {
-            return <Dice key={ dice.id } value={ dice.value } color={ this.props.color } />;
+        if (this.state.tossing) {
+            return <img src={ Loading } alt="Loading" width="58px" height="58px" />
+        }
+
+        return this.state.dices.map((dice, i) => {
+            return <Dice key={ i } value={ dice } color={ this.props.color } />;
         });
     }
 
