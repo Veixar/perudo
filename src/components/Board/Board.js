@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Dice from '../Dice/Dice';
 import Button from '../Button/Button';
 import './Board.css';
@@ -62,7 +63,7 @@ class Board extends React.Component {
 
     renderDices() {
         return this.state.dices.map((dice) => {
-            return <Dice key={ dice.id } value={ dice.value } />;
+            return <Dice key={ dice.id } value={ dice.value } color={ this.props.color } />;
         });
     }
 
@@ -89,5 +90,9 @@ class Board extends React.Component {
         );
     }
 }
+
+Board.propTypes = {
+    color: PropTypes.string
+};
 
 export default Board;

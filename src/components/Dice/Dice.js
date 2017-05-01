@@ -9,7 +9,7 @@ import Dice6 from '../../images/Dice6.svg';
 import './Dice.css';
 
 const Dice = (props) => (
-  <div className="Dice">
+  <div className="Dice" style={ { 'backgroundColor': props.color } }>
     { props.value === 1 &&
         <img src={ Dice1 } alt="Dice 1" width="100%" height="100%" />
     }
@@ -32,7 +32,8 @@ const Dice = (props) => (
 );
 
 Dice.propTypes = {
-    value: PropTypes.number
+    value: PropTypes.number,
+    color: PropTypes.string
 };
 
 export default Dice;

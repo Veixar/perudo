@@ -1,0 +1,6 @@
+.ColorSelector-Colors div {
+    width: 80px;
+    height: 80px;
+    display: inline-block;
+    margin: 5px;
+}
