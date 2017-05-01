@@ -6,4 +6,10 @@
 .Button button {
     width: 100%;
     padding: 10px;
+    background: #000;
+    color: #fff;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: none;
+    outline: none;
 }

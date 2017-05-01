@@ -18,18 +18,23 @@ class App extends React.Component {
         this.setState({ color });
     }
 
-    render() {
+    renderBody() {
         if (!this.state.color) {
-            return (
-              <div className="App">
-                <ColorSelector onColorSelected={ this.handleColorSelected } />
-              </div>
-            );
+            return <ColorSelector onColorSelected={ this.handleColorSelected } />;
         }
 
+        return <Board color={ this.state.color } />
+    }
+
+    render() {
         return (
           <div className="App">
-            <Board color={ this.state.color } />
+            <div className="App-Header">
+                <h1>Perudo</h1>
+            </div>
+            <div className="App-Body">
+                { this.renderBody() }
+            </div>
           </div>
         );
     }
