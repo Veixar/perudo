@@ -25,7 +25,7 @@ class Board extends React.Component {
     }
 
     getRandomDiceValue() {
-        return Math.round(Math.random() * (6 - 1)) + 1;
+        return Math.floor(Math.random() * 6) + 1;
     }
 
     handleTossDicesClick() {

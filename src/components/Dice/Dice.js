@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Dice1 from '../../images/Dice1.svg';
+import DicePerudo from '../../images/DicePerudo.png';
 import Dice2 from '../../images/Dice2.svg';
 import Dice3 from '../../images/Dice3.svg';
 import Dice4 from '../../images/Dice4.svg';
@@ -11,7 +11,7 @@ import './Dice.css';
 const Dice = (props) => (
   <div className="Dice" style={ { 'backgroundColor': props.color } }>
     { props.value === 1 &&
-        <img src={ Dice1 } alt="Dice 1" width="100%" height="100%" />
+        <img src={ DicePerudo } alt="Dice 1" width="100%" height="100%" />
     }
     { props.value === 2 &&
         <img src={ Dice2 } alt="Dice 2" width="100%" height="100%" />
